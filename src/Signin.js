@@ -15,7 +15,7 @@ function SignIn() {
     errors: [],
   });
 
-  const { username, password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
+  const {password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,7 +65,7 @@ function SignIn() {
     } else {
       // Handle login
       const loginData = {
-        username,
+        email,
         password,
       };
 
@@ -161,6 +161,31 @@ function SignIn() {
                       required
                     />
                   </Form.Group>
+                  <div className="col-md-6">
+                <label htmlFor="validationCustom03" className="form-label">City</label>
+                <input type="text" className="form-control" id="validationCustom03" required />
+                <div className="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div className="col-md-3">
+                <label htmlFor="validationCustom04" className="form-label">State</label>
+                <select className="form-select" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>...</option>
+                </select>
+                <div className="invalid-feedback">
+                  Please select a valid state.
+                </div>
+              </div>
+              <div className="col-md-3">
+                <label htmlFor="validationCustom05" className="form-label">Zip</label>
+                <input type="text" className="form-control" id="validationCustom05" required />
+                <div className="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+           
                   <Form.Group controlId="contact_number">
                     <Form.Label>Contact Number</Form.Label>
                     <Form.Control
@@ -193,11 +218,26 @@ function SignIn() {
                   required
                 />
               </Form.Group>
+              
               <br />
+              <div className="col-12">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                  <label className="form-check-label" htmlFor="invalidCheck">
+                    Agree to terms and conditions
+                  </label>
+                  <div className="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              
+            
               <Row>
                 <Col className="text-left">
                   <Button variant="primary" type="submit">
                     {isSignUp ? "Sign Up" : "Login"}
+                    
                   </Button>
                 </Col>
                 <Col className="text-right">
@@ -211,6 +251,7 @@ function SignIn() {
                 </Col>
               </Row>
               <br />
+              
             </Form>
             
           </Col>
