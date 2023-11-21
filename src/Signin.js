@@ -15,7 +15,7 @@ function SignIn() {
     errors: [],
   });
 
-  const {password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
+  const { username, password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,7 +30,6 @@ function SignIn() {
       // Handle signup
       const userData = {
         user: {
-    
           password,
           name,
           gender,
@@ -66,7 +65,7 @@ function SignIn() {
     } else {
       // Handle login
       const loginData = {
-        email,
+        username,
         password,
       };
 
@@ -174,7 +173,16 @@ function SignIn() {
                   </Form.Group>
                 </>
               )}
-            
+               <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={handleChange}
+                      required
+                    />
+              </Form.Group>
               <Form.Group controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -203,7 +211,6 @@ function SignIn() {
                 </Col>
               </Row>
               <br />
-              
             </Form>
             
           </Col>
