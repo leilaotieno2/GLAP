@@ -4,7 +4,6 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 function SignIn() {
   const [formData, setFormData] = useState({
-    username: "",
     password: "",
     name: "",
     gender: "",
@@ -15,7 +14,7 @@ function SignIn() {
     errors: [],
   });
 
-  const {password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
+  const { password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +39,7 @@ function SignIn() {
         },
       };
 
-        fetch('https://lifegivers-server.onrender.com/users', {
+        fetch('', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +69,7 @@ function SignIn() {
         password,
       };
 
-        fetch('https://lifegivers-server.onrender.com/login', {
+        fetch('', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +93,6 @@ function SignIn() {
         });
     }
   };
-
   const toggleForm = () => {
     setFormData({ ...formData, isSignUp: !isSignUp, errors: [] });
   };
@@ -200,6 +198,16 @@ function SignIn() {
                   </Form.Group>
                 </>
               )}
+               <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={handleChange}
+                      required
+                    />
+              </Form.Group>
               <Form.Group controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -210,18 +218,8 @@ function SignIn() {
                   required
                 />
               </Form.Group>
-              <Form.Group controlId="password">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
               
-              {isSignUp && (
+              <br />
               <div className="col-12">
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
@@ -233,9 +231,9 @@ function SignIn() {
                   </div>
                 </div>
               </div>
-              )}
+              
             
-                <Row>
+              <Row>
                 <Col className="text-left">
                   <Button variant="primary" type="submit">
                     {isSignUp ? "Sign Up" : "Login"}
