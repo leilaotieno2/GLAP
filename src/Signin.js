@@ -198,18 +198,18 @@ function SignIn() {
                   </Form.Group>
                 </>
               )}
-               <Form.Group controlId="email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={handleChange}
-                      required
-                    />
-              </Form.Group>
               <Form.Group controlId="password">
                 <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="password">
+                <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
                   type="password"
                   name="password"
@@ -231,6 +231,7 @@ function SignIn() {
                   </div>
                 </div>
               </div>
+              <br />
               
             
               <Row>
