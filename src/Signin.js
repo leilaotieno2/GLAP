@@ -219,7 +219,7 @@ function SignIn() {
                 />
               </Form.Group>
               
-              <br />
+              {isSignUp && (
               <div className="col-12">
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
@@ -231,10 +231,9 @@ function SignIn() {
                   </div>
                 </div>
               </div>
-              <br />
-              
+              )}
             
-              <Row>
+                <Row>
                 <Col className="text-left">
                   <Button variant="primary" type="submit">
                     {isSignUp ? "Sign Up" : "Login"}
