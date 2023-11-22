@@ -36,10 +36,11 @@ function SignIn() {
           age,
           email,
           contact_number,
+         
         },
       };
 
-      fetch('https://lifegivers-server.onrender.com/users', {
+        fetch('https://lifegivers-server.onrender.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ function SignIn() {
           } else {
             // Signup successful, do something with data
             // console.log(data);
-            localStorage.setItem('user', data)
+            localStorage.setItem('user', JSON.stringify(data));
             setFormData({ ...formData, isSignUp: !isSignUp, errors: [] });
           }
         })
@@ -69,7 +70,7 @@ function SignIn() {
         password,
       };
 
-      fetch('https://lifegivers-server.onrender.com/login', {
+        fetch('https://lifegivers-server.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,6 +161,7 @@ function SignIn() {
                       onChange={handleChange}
                       required
                     />
+                    
                   </Form.Group>
                   <div className="col-md-6">
                 <label htmlFor="validationCustom03" className="form-label">City</label>
