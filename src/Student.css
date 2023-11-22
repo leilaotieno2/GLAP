@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh; /* Set the height of the body to the viewport height */
+  }
+  
+  .student-container {
+    display: flex;
+    height: 100%; /* Make the student container occupy the full height */
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .sidebar-item {
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .sidebar-item.active {
+    background-color: #b0b0b0;
+    color: white;
+  }
+  
+  .content {
+    padding: 20px;
+    flex: 1; /* Make the content area occupy the remaining space */
+    background-color: #fff; /* Set a background color for the content area */
+  }
+  
