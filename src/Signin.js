@@ -5,6 +5,7 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 function SignIn() {
   const [formData, setFormData] = useState({
     password: "",
+    confirmPassword: "",
     name: "",
     gender: "",
     age: "",
@@ -14,7 +15,7 @@ function SignIn() {
     errors: [],
   });
 
-  const { password, name, gender, age, email, contact_number, isSignUp, errors } = formData;
+  const { password, confirmPassword, name, gender, age, email, contact_number, isSignUp, errors } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,6 +31,7 @@ function SignIn() {
       const userData = {
         user: {
           password,
+          confirmPassword,
           name,
           gender,
           age,
@@ -196,9 +198,7 @@ function SignIn() {
                       required
                     />
                   </Form.Group>
-                </>
-              )}
-              <Form.Group controlId="password">
+                  <Form.Group controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
@@ -212,12 +212,35 @@ function SignIn() {
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
                   type="password"
-                  name="password"
-                  value={password}
+                  name="confirmPassword"
+                  value={confirmPassword}
                   onChange={handleChange}
                   required
                 />
               </Form.Group>
+                </>
+              )}
+              {!isSignUp && (
+              <><Form.Group controlId="valid_email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
+                    required />
+                </Form.Group><Form.Group controlId="valid_password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={handleChange}
+                      required />
+                  </Form.Group></>
+              )}
+          
+              
               
               {isSignUp && (
               <div className="col-12">
