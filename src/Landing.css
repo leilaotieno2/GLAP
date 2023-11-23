@@ -2,88 +2,79 @@
 
 /* Header styles */
 .header {
-    background-color: rgba(0, 0, 0, 0.7); /* Adjust the alpha value for transparency */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Set a high z-index to ensure it's above other content */
-  }
-  
-  .site-name {
-    color: white; /* Text color for the site name */
-    margin: 0; /* Remove default margin */
-    font-size: 2em; /* Adjust font size as needed */
-    float: right; /* Align the text to the right */
-  }
-  
-  /* Navigation Bar Container with Semi-Transparent Black Background */
-  .nav-container {
-    background-color: rgba(0, 0, 0, 0.5); /* Use rgba to set the background color with transparency */
+    z-index: 1000;
+}
+
+.site-name {
+    color: white;
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation Bar Container with Semi-Transparent Black Background */
+.nav-container {
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     width: 100%;
-    top: 60px; /* Adjust the top position to leave space for the header */
-    z-index: 999; /* Set a z-index lower than the header to ensure it's below */
-  }
+    top: 60px;
+    z-index: 999;
+}
+
 /* Navigation Bar Items */
 .nav.nav-tabs {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    position: relative; /* Ensure the nav bar is positioned relative to its container */
-    z-index: 1001; /* Set a higher z-index to make sure it's above the GLAP container */
-  }
-  
-  .nav.nav-tabs li {
-    float: left;
-  }
-  
-  .nav.nav-tabs li a {
+    position: relative;
+    z-index: 1001;
+    text-align: center; /* Center the navigation items */
+}
+
+.nav.nav-tabs li {
+    display: inline-block; /* Display list items in a line */
+}
+
+.nav.nav-tabs li a {
     display: block;
-    color: white; /* Set text color to white */
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0); /* Set a transparent initial background color */
-    transition: background-color 0.3s; /* Add a smooth transition effect for the background color */
-  }
-  
-  .nav.nav-tabs li a:hover {
-    background-color: rgb(221, 35, 35); /* Set the background color for hover */
-  }
-  
-  /* Add styles to make the carousel a trapezium shape */
-  #customCarousel {
-    width: 50%;
-    max-width: 50vw;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s;
+}
+
+.nav.nav-tabs li a:hover {
+    background-color: rgb(221, 35, 35);
+}
+
+/* Add styles to make the carousel a rectangle shape */
+#myCarousel {
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ddd;
     overflow: hidden;
-    transform: skewY(-10deg); /* Adjust the skew angle as needed */
-    position: absolute;
-    right: 0; /* Position the carousel to the right */
-    top: 120px; /* Adjust the top position as needed */
-    z-index: 1; /* Set a z-index lower than the navigation bar */
-  }
-  
-  /* Reverse the skew on carousel items to make them rectangular again */
-  .carousel-inner {
-    transform: skewY(10deg);
-  }
-  
-  /* Style for carousel items */
-  .carousel-item {
-    height: 100vh; /* Adjust the height as needed */
-  }
-  
-  /* Center content inside carousel items */
-  .carousel-caption {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  /* Adjust navigation bar styles */
-  .nav {
-    margin-bottom: 20px; /* Add some margin at the bottom */
-  }
-  
+    border-radius: 10px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.custom-img {
+    height: auto;
+}
+
+/* Adjust navigation bar styles */
+.nav {
+    margin-bottom: 20px;
+}
