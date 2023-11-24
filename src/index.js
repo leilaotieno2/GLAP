@@ -1,20 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-// index.js or index.js
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Example assuming all components are in the same directory as index.js
+import Home from './components/container/Home';
+import About from './components/container/About';
+import Teacher from './components/container/Teacher';
+import Courses from './components/container/Course/Courses';
+import Footer from './Footer';
+import Navbar from './Navbar';
+import Contact from './components/container/Contact';
+export { Navbar, Home, About, Courses, Teacher,Contact, Footer };
