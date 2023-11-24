@@ -1,25 +1,43 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
-    Navbar,
-    Home,
-    About,
-    Teacher,
-    Contact,
-    Courses,
-    Footer,
-  } from "./index";
-  
-  function App() {
-    return (
-      <div className="font-Poppins bg-Solitude">
-        <Navbar />
-        <Home />
-        <About />
-        <Courses />
-        <Teacher />
-        <Contact />
-        <Footer />
-      </div>
-    );
-  }
-  
-  export default App;
+  Navbar,
+  Home,
+  About,
+  Teacher,
+  Contact,
+  Courses,
+  Footer,
+  SignUpForm,
+} from './index';
+
+function App() {
+  return (
+    <div className="font-Poppins bg-Solitude">
+      {/* Router setup */}
+      <Router>
+        <Routes>
+          {/* Route for existing components */}
+          <Route path="" element={
+            <>
+              <Navbar />
+              <Home />
+              <About />
+              <Courses />
+              <Teacher />
+              <Contact />
+              <Footer />
+            </>
+          } />
+
+          {/* Route for SignUpForm */}
+          <Route path="/Signup" element={<SignUpForm />} />
+
+          {/* Additional routes can be added here if needed */}
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;

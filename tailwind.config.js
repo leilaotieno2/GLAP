@@ -3,7 +3,12 @@ module.exports = {
   content: [
     "./src/**/*.html",
     "./src/**/*.js",
-    "./src/components/**/*.jsx"
+    "./src/components/**/*.jsx",
+    "./src/**/*.html",
+    "./src/**/*.js",
+    "./src/**/*.jsx",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
   ],
   theme: {
     fontFamily: {
@@ -33,5 +38,5 @@ module.exports = {
       md: "1060px",
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms'),],
 }

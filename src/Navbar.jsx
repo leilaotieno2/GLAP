@@ -4,10 +4,12 @@ import { HiMenuAlt1, HiX } from "react-icons/hi";
 import MobileNavLinks from "./MobileNavLinks";
 import NavLink from "./NavLink";
 import { motion } from "framer-motion";
+import SignUpForm from "./SignUpForm";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(null);
+  const [showSignUpForm, setShowSignUpForm] = useState(false);
 
   useEffect(() => {
     const scrollActive = () => {
@@ -18,6 +20,11 @@ const Navbar = () => {
 
     return () => window.removeEventListener("scroll", scrollActive);
   }, [active]);
+
+  const handleSignUpClick = () => {
+    // Redirect to http://localhost:5174/signup
+    window.location.href = "http://localhost:5174/signup";
+  };
 
   return (
     <div
@@ -41,33 +48,50 @@ const Navbar = () => {
             </div>
           </div>
           <div className="sm:flex items-center hidden">
-            {navLinks.map((navLink) => {
-              return <NavLink key={navLink.id} {...navLink} />;
-            })}
+            {navLinks.map((navLink) => (
+              <NavLink key={navLink.id} {...navLink} />
+            ))}
           </div>
-          <button className="py-3 px-6 font-bold text-sm border border-solid rounded-lg border-gray">
+          <button
+            className="py-3 px-6 font-bold text-sm border border-solid rounded-lg border-gray"
+            onClick={handleSignUpClick}
+          >
             Sign Up
           </button>
         </div>
       </div>
-      {/* Separate container for the dropdown menu, conditionally rendered based on toggle */}
+      {showSignUpForm && (
+        <div
+          className={`${
+            active ? "bg-Solitude" : ""
+          } fixed w-full top-0 left-0 z-20 py-4`}
+        >
+          <div className="container mx-auto">
+            <SignUpForm />
+          </div>
+        </div>
+      )}
       {toggle && (
         <motion.div
-          initial={{ x: "50%", y: "50%", translateX: "-50%", translateY: "-50%", opacity: 0 }}
+          initial={{
+            x: "50%",
+            y: "50%",
+            translateX: "-50%",
+            translateY: "-50%",
+            opacity: 0,
+          }}
           animate={{ y: "50%", opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="fixed w-96 bg-Teal text-white flex flex-col justify-center items-center shadow-lg gap-8 py-8"
+          className="fixed w-48 h-48 bg-Teal text-white flex flex-col justify-center items-center shadow-lg gap-8 py-8"
           style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
         >
-          {navLinks.map((navLink) => {
-            return (
-              <MobileNavLinks
-                key={navLink.id}
-                {...navLink}
-                setToggle={setToggle}
-              />
-            );
-          })}
+          {navLinks.map((navLink) => (
+            <MobileNavLinks
+              key={navLink.id}
+              {...navLink}
+              setToggle={setToggle}
+            />
+          ))}
           <HiX
             className="absolute right-12 top-12 text-3xl cursor-pointer"
             onClick={() => setToggle(false)}

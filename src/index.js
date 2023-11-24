@@ -6,4 +6,5 @@ import Courses from './components/container/Course/Courses';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Contact from './components/container/Contact';
-export { Navbar, Home, About, Courses, Teacher,Contact, Footer };
+import SignUpForm from './SignUpForm';
+export { Navbar, Home, About, Courses, Teacher,Contact, Footer,SignUpForm };

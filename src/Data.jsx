@@ -2,6 +2,8 @@ import { FiPenTool } from "react-icons/fi";
 import { FaLaptopCode } from "react-icons/fa";
 import { BsBarChartLine } from "react-icons/bs";
 import { MdOutlineScience } from "react-icons/md";
+import React from 'react';
+
 
 import courses1 from "./assets/courses1.jpg";
 import courses2 from "./assets/courses2.jpg";
