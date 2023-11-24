@@ -10,7 +10,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(null);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
-
+  
   useEffect(() => {
     const scrollActive = () => {
       setActive(window.scrollY > 20);
@@ -24,6 +24,7 @@ const Navbar = () => {
   const handleSignUpClick = () => {
     // Redirect to http://localhost:5174/signup
     window.location.href = "http://localhost:5174/signup";
+  
   };
 
   return (
@@ -44,7 +45,7 @@ const Navbar = () => {
               onClick={() => setToggle(!toggle)}
             />
             <div className="text-xl text-black uppercase tracking-wide font-bold">
-              Skillex
+              GLAP
             </div>
           </div>
           <div className="sm:flex items-center hidden">
@@ -71,6 +72,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+    
       {toggle && (
         <motion.div
           initial={{
