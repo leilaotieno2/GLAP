@@ -1,78 +1,189 @@
 import React from 'react';
-import { FaBook, FaFileAlt, FaGraduationCap, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import PhotoIcon from './PhotoIcon'
+import { useNavigate } from 'react-router-dom'; 
+
+import { UserCircleIcon } from '@heroicons/react/outline';
+
+import './Dashboard.css';
+
 
 const Dashboard = () => {
-  const student = {
-    name: "John Doe",
-    id: "123456",
-    courses: ["Math", "History", "Science"],
-    assessment: "Midterm Exam",
-    grades: "A",
-  };
-
-  if (!student || !student.name || !student.id || !student.courses || !student.assessment || !student.grades) {
-    return (
-      <div className="container mx-auto mt-8 p-4 bg-gray-100 border rounded-md">
-        <p className="text-red-500">Error: Student data is incomplete or unavailable.</p>
-      </div>
-    );
-  }
-
-  // Replace these with your actual links or functionality
-  const coursesLink = "/courses";
-  const assessmentLink = "/assessment";
-  const gradesLink = "/grades";
-  const calendarLink = "/calendar";
-  const profileLink = "/profile"; // Add a link to the user's profile page
-
+   
+   
   return (
-    <div className="flex h-screen items-center bg-gray-100">
 
-      {/* Sidebar */}
-      <div className="w-16 p-4 bg-gray-300 border-r border-gray-400 transition-all duration-300 ease-in-out transform hover:scale-105">
-        <h3 className="text-xs font-semibold mb-2 text-center border-b border-gray-500 pb-2">GLAP</h3>
-        <ul className="flex flex-col items-center">
-          <li className="mb-4 transform hover:scale-110 transition-all duration-300"><a href={profileLink}><FaUser className="text-xl text-gray-700" /></a></li>
-          <li className="mb-4 transform hover:scale-110 transition-all duration-300"><a href={coursesLink}><FaBook className="text-xl text-gray-700" /></a></li>
-          <li className="mb-4 transform hover:scale-110 transition-all duration-300"><a href={assessmentLink}><FaFileAlt className="text-xl text-gray-700" /></a></li>
-          <li className="mb-4 transform hover:scale-110 transition-all duration-300"><a href={gradesLink}><FaGraduationCap className="text-xl text-gray-700" /></a></li>
-          <li className="mb-4 transform hover:scale-110 transition-all duration-300"><a href={calendarLink}><FaCalendarAlt className="text-xl text-gray-700" /></a></li>
+  <span style={{fontFamily: 'verdana, geneva, sans-serif'}}>
+  <title>Job Dashboard | By Code Info</title>
+  <link rel="stylesheet" href="style.css" />
+  {/* Font Awesome Cdn Link */}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <div className="container">
+    <nav>
+      <div className="navbar">
+        <div className="logo">
+          <img src="/pic/logo.jpg" alt />
+          <h1>jobs</h1>
+        </div>
+        <ul>
+          <li><a href="#">
+              <i className="fas fa-user" />
+              <span className="nav-item">Dashboard</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i className="fas fa-chart-bar" />
+              <span className="nav-item">Analytics</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i className="fas fa-tasks" />
+              <span className="nav-item">Jobs Board</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i className="fab fa-dochub" />
+              <span className="nav-item">Documnents</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i className="fas fa-cog" />
+              <span className="nav-item">Setting</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i className="fas fa-question-circle" />
+              <span className="nav-item">Help</span>
+            </a>
+          </li>
+          <li><a href="#" className="logout">
+              <i className="fas fa-sign-out-alt" />
+              <span className="nav-item">Logout</span>
+            </a>
+          </li>
         </ul>
       </div>
-
-      {/* Main Content */}
-      <div className="flex-1 p-4">
-        <div className="mx-auto max-w-screen-md">
-
-          <div className="bg-white p-6 rounded-md shadow-md mb-4 w-full">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Welcome, {student.name}!</h2>
-            <p className="mb-2 text-gray-600">Student ID: {student.id}</p>
+    </nav>
+    <section className="main">
+      <div className="main-top">
+        <p>Explore the universe!</p>
+      </div>
+      <div className="main-body">
+        <h1>Recent Jobs</h1>
+        <div className="search_bar">
+          <input type="search" placeholder="Search job here..." />
+          <select name id>
+            <option>Category</option>
+            <option>Web Design</option>
+            <option>App Design</option>
+            <option>App Development</option>
+          </select>
+          <select className="filter">
+            <option>Filter</option>
+          </select>
+        </div>
+        <div className="tags_bar">
+          <div className="tag">
+            <i className="fas fa-times" />
+            <span>Programming</span>
           </div>
-
-          <div className="bg-white p-6 rounded-md shadow-md mb-4 w-full">
-            <h3 className="text-xl font-semibold mb-2" id="courses">Courses Enrolled:</h3>
-            <ul className="list-disc pl-4">
-              {student.courses.map((course, index) => (
-                <li key={index} className="text-gray-600">{course}</li>
-              ))}
-            </ul>
+          <div className="tag">
+            <i className="fas fa-times" />
+            <span>Design</span>
           </div>
-
-          <div className="bg-white p-6 rounded-md shadow-md mb-4 w-full">
-            <h3 className="text-xl font-semibold mb-2" id="assessment">Assessment:</h3>
-            <p className="text-gray-600">{student.assessment}</p>
+          <div className="tag">
+            <i className="fas fa-times" />
+            <span>PHP</span>
           </div>
-
-          <div className="bg-white p-6 rounded-md shadow-md mb-4 w-full">
-            <h3 className="text-xl font-semibold mb-2" id="grades">Grades:</h3>
-            <p className="text-gray-600">{student.grades}</p>
+          <div className="tag">
+            <i className="fas fa-times" />
+            <span>JavaScript</span>
           </div>
-
+        </div>
+        <div className="row">
+          <p>There are more than <span>400</span> Jobs</p>
+          <a href="#">See all</a>
+        </div>
+        <div className="job_card">
+          <div className="job_details">
+            <div className="img">
+              <i className="fab fa-google-drive" />
+            </div>
+            <div className="text">
+              <h2>UX Designer</h2>
+              <span>Google Drive - Junior Post</span>
+            </div>
+          </div>
+          <div className="job_salary">
+            <h4>$6.7 - $12.5k /yr</h4>
+            <span>1 days ago</span>
+          </div>
+        </div>
+        <div className="job_card">
+          <div className="job_details">
+            <div className="img">
+              <i className="fab fa-google" />
+            </div>
+            <div className="text">
+              <h2>JavaScript Developer</h2>
+              <span>Google - Senior Post</span>
+            </div>
+          </div>
+          <div className="job_salary">
+            <h4>$8.7 - $13.2k /yr</h4>
+            <span>2 days ago</span>
+          </div>
+        </div>
+        <div className="job_card">
+          <div className="job_details">
+            <div className="img">
+              <i className="fab fa-facebook" />
+            </div>
+            <div className="text">
+              <h2>Product Developer</h2>
+              <span>Facbook - Manager Post</span>
+            </div>
+          </div>
+          <div className="job_salary">
+            <h4>$11 - $18.5k /yr</h4>
+            <span>2 days ago</span>
+          </div>
+        </div>
+        <div className="job_card">
+          <div className="job_details">
+            <div className="img">
+              <i className="fab fa-git-alt" />
+            </div>
+            <div className="text">
+              <h2>Programmer</h2>
+              <span>Github - Juni Post</span>
+            </div>
+          </div>
+          <div className="job_salary">
+            <h4>$6 - $11.5k /yr</h4>
+            <span>3 days ago</span>
+          </div>
+        </div>
+        <div className="job_card">
+          <div className="job_details">
+            <div className="img">
+              <i className="fab fa-youtube" />
+            </div>
+            <div className="text">
+              <h2>React.js Expert</h2>
+              <span>Youtube - VIP</span>
+            </div>
+          </div>
+          <div className="job_salary">
+            <h4>$12.5 - $25.5k /yr</h4>
+            <span>4 days ago</span>
+          </div>
         </div>
       </div>
+    </section>
+  </div>
+</span>
 
-    </div>
   );
 };
 
-export default Dashboard;
+export default Dashboard
