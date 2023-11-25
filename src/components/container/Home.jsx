@@ -1,8 +1,16 @@
-import React from "react";
 import hero from "../../assets/hero.png";
+import React, { useState } from "react";
+
 import { logos } from "../../Data";
 import { motion } from "framer-motion";
+import Dashboard from "../../Dashboard";
 const Home = () => {
+  const [showDashboard, setShowDashboard] = useState(false);
+  const handleDashboardClick = () => {
+    // Redirect to http://localhost:5174/signup
+    window.location.href = "http://localhost:5174/Dashboard";
+  
+  };
   const container = {
     hidden: {
       opacity: 0,
@@ -37,14 +45,27 @@ const Home = () => {
             officia sit vitae quo, eum similique?
           </p>
           <div className="mt-6">
-            <button className="px-6 py-3 font-bold text-white bg-Teal rounded-lg mr-4 text-sm">
+            <button className="px-6 py-3 font-bold text-white bg-Teal rounded-lg mr-4 text-sm"
+            onClick={handleDashboardClick}>
               Get Started
             </button>
+            
             <button className="px-6 py-3 font-bold border border-solid border-gray rounded-lg text-sm">
               Discover
             </button>
           </div>
         </div>
+        {showDashboard && (
+        <div
+          className={`${
+            active ? "bg-Solitude" : ""
+          } fixed w-full top-0 left-0 z-20 py-4`}
+        >
+          <div className="container mx-auto">
+            <Dashboard />
+          </div>
+        </div>
+      )}
         <div className="md:w-[60%]">
           <img src={hero} alt="" />
         </div>

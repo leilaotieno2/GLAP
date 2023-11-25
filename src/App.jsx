@@ -9,6 +9,10 @@ import {
   Courses,
   Footer,
   SignUpForm,
+  Dashboard,
+  Instructor,
+  University,
+  
 } from './index';
 
 function App() {
@@ -32,6 +36,10 @@ function App() {
 
           {/* Route for SignUpForm */}
           <Route path="/Signup" element={<SignUpForm />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Instructor" element={<Instructor />} />
+          <Route path="/University" element={<University />} />
+
 
           {/* Additional routes can be added here if needed */}
         </Routes>
