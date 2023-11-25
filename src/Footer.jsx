@@ -13,7 +13,7 @@ const Footer = () => {
       initial={{ height: 0 }}
       whileInView={{ height: "auto" }}
       transition={{ duration: 1 }}
-      className="bg-Teal p-10"
+      className="bg-black p-10"
     >
       <div className="grid md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 place-items-start gap-8 text-white">
         <div>
@@ -27,28 +27,25 @@ const Footer = () => {
           <div className="font-bold mb-6">Services</div>
           <div className="flex flex-col gap-4">
             <a href="" className="text-sm hover:underline">
-              Web Design
+              Administrative services
             </a>
             <a href="" className="text-sm hover:underline">
-              Web Development
+              Education programs
             </a>
             <a href="" className="text-sm hover:underline">
               {" "}
-              Science
-            </a>
-            <a href="" className="text-sm hover:underline">
-              Digital Marketing
+              Specialized services
             </a>
           </div>
         </div>
         <div>
-          <div className="font-bold mb-6">Company</div>
+          <div className="font-bold mb-6">GLAP</div>
           <div className="flex flex-col gap-4">
             <a href="" className="text-sm hover:underline">
               Privacy Policy
             </a>
             <a href="" className="text-sm hover:underline">
-              Sitemap
+              Resources
             </a>
             <a href="" className="text-sm hover:underline">
               Careers
@@ -60,8 +57,8 @@ const Footer = () => {
         </div>
         <div>
           <div className="font-bold mb-6">Follow us</div>
-          <div className="text-sm mb-4">skillexlearning@gmail.com</div>
-          <div className="text-sm">+959883271929</div>
+          <div className="text-sm mb-4">glap@gmail.com</div>
+          <div className="text-sm">+254793641108</div>
           <div className="flex gap-4 mt-4">
             <a href="" className="hover:scale-110 text-xl">
               <BsFacebook />

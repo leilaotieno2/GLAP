@@ -9,6 +9,10 @@ module.exports = {
     "./src/**/*.jsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./src/*/.*vue",
+    "./src/**/*.css",
+    "./src/**/*.scss",
+    "./src/**/*.sass",
   ],
   theme: {
     fontFamily: {

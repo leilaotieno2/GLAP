@@ -5,8 +5,10 @@ import MobileNavLinks from "./MobileNavLinks";
 import NavLink from "./NavLink";
 import { motion } from "framer-motion";
 import SignUpForm from "./SignUpForm";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(null);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
@@ -22,8 +24,8 @@ const Navbar = () => {
   }, [active]);
 
   const handleSignUpClick = () => {
-    // Redirect to http://localhost:5174/signup
-    window.location.href = "http://localhost:5174/signup";
+  
+    navigate('/SignUp');
   
   };
 
