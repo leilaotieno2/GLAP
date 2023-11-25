@@ -1,16 +1,25 @@
-import hero from "../../assets/hero.png";
 import React, { useState } from "react";
-
-import { logos } from "../../Data";
+import { useNavigate } from 'react-router-dom';  // Import useNavigate from react-router-dom
 import { motion } from "framer-motion";
 import Dashboard from "../../Dashboard";
+import { logos } from "../../Data";
+import hero from "../../assets/hero.png";
+
 const Home = () => {
+  const navigate = useNavigate();  // Add this line to use the navigate function
   const [showDashboard, setShowDashboard] = useState(false);
+
   const handleDashboardClick = () => {
-    // Redirect to http://localhost:5174/signup
+    // Redirect to http://localhost:5174/Dashboard
     window.location.href = "http://localhost:5174/Dashboard";
-  
   };
+
+  const handleSave = () => {
+    // Perform save operations if needed
+    // For now, let's just navigate to the login component
+    navigate('/login');  // Use the navigate function to navigate to '/login'
+  };
+
   const container = {
     hidden: {
       opacity: 0,
@@ -25,10 +34,12 @@ const Home = () => {
       },
     },
   };
+
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1 },
   };
+
   return (
     <div className="section" id="home">
       <div className="md:flex items-center justify-center">
@@ -45,27 +56,28 @@ const Home = () => {
             officia sit vitae quo, eum similique?
           </p>
           <div className="mt-6">
-            <button className="px-6 py-3 font-bold text-white bg-Teal rounded-lg mr-4 text-sm"
-            onClick={handleDashboardClick}>
+            <button
+              className="px-6 py-3 font-bold text-white bg-Teal rounded-lg mr-4 text-sm"
+              onClick={handleSave}
+            >
               Get Started
             </button>
-            
             <button className="px-6 py-3 font-bold border border-solid border-gray rounded-lg text-sm">
               Discover
             </button>
           </div>
         </div>
         {showDashboard && (
-        <div
-          className={`${
-            active ? "bg-Solitude" : ""
-          } fixed w-full top-0 left-0 z-20 py-4`}
-        >
-          <div className="container mx-auto">
-            <Dashboard />
+          <div
+            className={`${
+              active ? "bg-Solitude" : ""
+            } fixed w-full top-0 left-0 z-20 py-4`}
+          >
+            <div className="container mx-auto">
+              <Dashboard />
+            </div>
           </div>
-        </div>
-      )}
+        )}
         <div className="md:w-[60%]">
           <img src={hero} alt="" />
         </div>
@@ -74,7 +86,7 @@ const Home = () => {
         <p className="text-center text-xl">
           We collaborate with{" "}
           <span className="text-Teal">
-            100+ leading universities ans companies
+            100+ leading universities and companies
           </span>
         </p>
         <motion.div

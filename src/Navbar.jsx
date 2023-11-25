@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { navLinks } from "./Data";
-import { HiMenuAlt1, HiX } from "react-icons/hi";
-import MobileNavLinks from "./MobileNavLinks";
-import NavLink from "./NavLink";
-import { motion } from "framer-motion";
-import SignUpForm from "./SignUpForm";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { navLinks } from './Data';
+import { HiMenuAlt1, HiX } from 'react-icons/hi';
+import MobileNavLinks from './MobileNavLinks';
+import NavLink from './NavLink';
+import { motion } from 'framer-motion';
+import SignUpForm from './SignUpForm';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(null);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     const scrollActive = () => {
       setActive(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", scrollActive);
+    window.addEventListener('scroll', scrollActive);
 
-    return () => window.removeEventListener("scroll", scrollActive);
+    return () => window.removeEventListener('scroll', scrollActive);
   }, [active]);
 
   const handleSignUpClick = () => {
-    // Redirect to http://localhost:5174/signup
-    window.location.href = "http://localhost:5174/signup";
-  
+    navigate('/signup');
   };
+
 
   return (
     <div
@@ -55,7 +56,7 @@ const Navbar = () => {
           </div>
           <button
             className="py-3 px-6 font-bold text-sm border border-solid rounded-lg border-gray"
-            onClick={handleSignUpClick}
+            onClick={ handleSignUpClick}
           >
             Sign Up
           </button>
@@ -68,7 +69,7 @@ const Navbar = () => {
           } fixed w-full top-0 left-0 z-20 py-4`}
         >
           <div className="container mx-auto">
-            <SignUpForm />
+           
           </div>
         </div>
       )}

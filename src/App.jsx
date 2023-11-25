@@ -14,6 +14,7 @@ import {
   University,
   
 } from './index';
+import Login from './Login';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Instructor" element={<Instructor />} />
           <Route path="/University" element={<University />} />
-
+          <Route path="/Login" element={<Login />} />
 
           {/* Additional routes can be added here if needed */}
         </Routes>
