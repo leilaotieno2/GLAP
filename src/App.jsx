@@ -12,10 +12,12 @@ import {
   Dashboard,
   Instructor,
   University,
+  TeacherDashboard,
   
   
 } from './index';
 import Login from './Login';
+
 
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
           <Route path="/Instructor" element={<Instructor />} />
           <Route path="/University" element={<University />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Teacher" element={<TeacherDashboard />} />
            
           {/* Additional routes can be added here if needed */}
         </Routes>
